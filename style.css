@@ -1400,6 +1400,14 @@ section {
   .skills-wrap { grid-template-columns: repeat(2, 1fr); }
 }
 @media (max-width: 768px) {
+  .hero-ultra-wide { gap: 3rem; padding-top: 80px; }
+  .photo-frame-v9 { width: 250px; height: 250px; margin-left: 0; }
+  .hero-center-v9 { min-width: 100%; }
+  .hero-title-v9 { font-size: 3rem; min-height: 2.5em; }
+  .terminal-wrapper { width: 100%; max-width: 350px; height: 280px; }
+  .orbit-wrap-v9 { transform: scale(0.6); } /* Perfectly scales down the 3D swarm for phones */
+  .quick-stats { flex-direction: column; gap: 1.5rem; text-align: center; }
+
   #hero {
     grid-template-columns: 1fr; gap: 3rem;
     padding-top: 120px; min-height: auto;
