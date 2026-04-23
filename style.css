@@ -506,7 +506,7 @@ h1 {
 }
 .hero-ultra-wide {
   display: flex; align-items: center; justify-content: space-between;
-  width: 90%; max-width: 1750px; gap: 10rem;
+  width: 90%; max-width: 1750px; gap: 6rem;
 }
 
 .hero-photo-v9 { flex: 0.6; }
@@ -536,7 +536,7 @@ h1 {
 
 .hero-right-v9 { flex: 1.2; display: flex; justify-content: flex-end; }
 .terminal-parent-v9 {
-  position: relative; display: flex; align-items: center; justify-content: center;
+  position: relative; display: inline-flex; align-items: center; justify-content: center;
 }
 
 .terminal-window.professional.detailed {
@@ -849,18 +849,18 @@ section {
 /* ── Certificates ── */
 .cert-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-  gap: 1.5rem;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 1.2rem;
 }
 .cert-card {
   background: var(--bg-glass);
   backdrop-filter: blur(12px);
   border: 1px solid var(--glass-border);
-  border-radius: 16px;
-  padding: 1.5rem;
+  border-radius: 12px;
+  padding: 1.2rem;
   display: flex;
   align-items: center;
-  gap: 1.2rem;
+  gap: 1rem;
   transition: all 0.4s var(--ease);
 }
 .cert-card:hover {
