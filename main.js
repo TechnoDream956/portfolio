@@ -1,11 +1,5 @@
-// ── Cursor Glow Effect ──
-const glow = document.getElementById('cursor-glow');
-if (glow && window.innerWidth > 768) {
-  document.addEventListener('mousemove', (e) => {
-    glow.style.left = e.clientX + 'px';
-    glow.style.top = e.clientY + 'px';
-  });
-}
+// Integrated cursor/parallax logic at end
+
 
 // ── Navbar Scroll Effect ──
 const header = document.getElementById('header');
@@ -95,4 +89,25 @@ window.addEventListener('scroll', () => {
       link.style.color = 'var(--text-bright)';
     }
   });
+});
+// ── Parallax & Interactive Effects ──
+document.addEventListener('mousemove', (e) => {
+  const x = e.clientX / window.innerWidth;
+  const y = e.clientY / window.innerHeight;
+
+  // Move blobs subtly for parallax
+  document.querySelectorAll('.blob').forEach((blob, index) => {
+    const depth = (index + 1) * 20;
+    const moveX = (x - 0.5) * depth;
+    const moveY = (y - 0.5) * depth;
+    // We combine current float animation with mouse parallax
+    blob.style.transform = `translate(${moveX}px, ${moveY}px)`;
+  });
+
+  // Cursor glow
+  const glowEl = document.getElementById('cursor-glow');
+  if (glowEl && window.innerWidth > 768) {
+    glowEl.style.left = e.clientX + 'px';
+    glowEl.style.top = e.clientY + 'px';
+  }
 });

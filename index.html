@@ -19,6 +19,8 @@
     <div class="blob blob-1"></div>
     <div class="blob blob-2"></div>
     <div class="blob blob-3"></div>
+    <div class="blob blob-4"></div>
+    <div class="blob blob-5"></div>
   </div>
 
   <!-- Cursor glow effect -->
@@ -37,7 +39,7 @@
       </div>
       <div class="nav-btns">
         <a href="https://github.com/TechnoDream956" target="_blank" rel="noopener" class="nav-cta">GitHub ↗</a>
-        <a href="/resume.pdf" target="_blank" class="pill-btn ghost nav-resume">Resume</a>
+        <a href="javascript:void(0)" class="pill-btn ghost nav-resume" onclick="openResume()">Resume</a>
       </div>
     </nav>
   </header>
@@ -72,6 +74,10 @@
           <img src="/arpit.jpg" alt="Arpit Sehrawat" />
           <div class="photo-border"></div>
         </div>
+      </div>
+      <div class="scroll-indicator">
+        <span>Scroll to explore</span>
+        <div class="scroll-line"></div>
       </div>
     </section>
 
@@ -421,6 +427,98 @@
     </div>
   </footer>
 
+  <!-- RESUME MODAL -->
+  <div id="resume-modal" class="modal">
+    <div class="modal-backdrop" onclick="closeResume()"></div>
+    <div class="modal-content">
+      <button class="modal-close" onclick="closeResume()">×</button>
+      <div class="resume-frame">
+        <header class="resume-header">
+          <h1>Arpit Sehrawat</h1>
+          <div class="resume-contact">
+            <span>Greater Noida, India</span>
+            <span>•</span>
+            <a href="mailto:arpitsehrawat2030@gmail.com">arpitsehrawat2030@gmail.com</a>
+            <span>•</span>
+            <a href="https://linkedin.com/in/arpit-sehrawat-bb6a09323">LinkedIn</a>
+          </div>
+          <button class="pill-btn print-btn" onclick="window.print()">Download PDF Resume</button>
+        </header>
+
+        <div class="resume-body">
+          <section class="resume-section">
+            <h3>Education</h3>
+            <div class="res-item">
+                <div class="res-header">
+                    <span class="res-title">Bennett University</span>
+                    <span class="res-date">2024 — 2028</span>
+                </div>
+                <div class="res-subtitle">B.Tech in Computer Science & Engineering</div>
+                <p>Specializing in Cloud Computing. Maintaining a strong academic record with a focus on scalable systems and high-performance computing.</p>
+            </div>
+          </section>
+
+          <section class="resume-section">
+            <h3>Impactful Projects</h3>
+            <div class="res-item">
+                <div class="res-header">
+                    <span class="res-title">Smart Canteen Infrastructure</span>
+                </div>
+                <p>Architected a real-time management platform using Node.js and WebSockets, automating ordering for 1000+ students and increasing kitchen efficiency by 40%.</p>
+            </div>
+            <div class="res-item">
+                <div class="res-header">
+                    <span class="res-title">Vital Arogya Guardian (AI Health)</span>
+                </div>
+                <p>Developed an AI diagnostics engine that leverages symptoms data to provide immediate health risk assessments, featuring a reactive real-time dashboard.</p>
+            </div>
+            <div class="res-item">
+                <div class="res-header">
+                    <span class="res-title">RAG-Based Intelligent Chatbot</span>
+                </div>
+                <p>Built a Retrieval-Augmented Generation chatbot deployed on AWS Lambda, capable of processing large-scale technical documentation for instant querying.</p>
+            </div>
+          </section>
+
+          <section class="resume-section">
+            <h3>Core Expertise</h3>
+            <div class="res-skills">
+              <span class="res-badge">Python (Expert)</span>
+              <span class="res-badge">Java (Advanced)</span>
+              <span class="res-badge">C++ (Logic)</span>
+              <span class="res-badge">JavaScript / TypeScript</span>
+              <span class="res-badge">AWS Cloud Architecting</span>
+              <span class="res-badge">Docker & Containerization</span>
+              <span class="res-badge">React.js Frontend</span>
+              <span class="res-badge">Flask & Node.js Backend</span>
+              <span class="res-badge">Data Structures & Algos</span>
+            </div>
+          </section>
+
+          <section class="resume-section">
+            <h3>Top Certifications</h3>
+            <ul class="res-list">
+              <li><strong>AWS Academy Graduate</strong> — Cloud Architecting (Professional Training)</li>
+              <li><strong>AWS Academy Graduate</strong> — Data Engineering (Specialized)</li>
+              <li><strong>Infosys Springboard</strong> — Python Development Professional</li>
+              <li><strong>DSA Expert</strong> — Advanced Problem Solving & Algorithm Design</li>
+            </ul>
+          </section>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <script type="module" src="/main.js"></script>
+  <script>
+    function openResume() {
+      document.getElementById('resume-modal').classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
+    function closeResume() {
+      document.getElementById('resume-modal').classList.remove('active');
+      document.body.style.overflow = 'auto';
+    }
+  </script>
 </body>
 </html>
