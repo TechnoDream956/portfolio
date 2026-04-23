@@ -1399,6 +1399,11 @@ section {
   .skills-wrap { grid-template-columns: repeat(2, 1fr); }
 }
 @media (max-width: 768px) {
+  /* ── Extreme Mobile Performance Optimizations ── */
+  .bg-blobs, #particles-js, .tech-overlays { display: none !important; } /* Kills GPU-heavy blurs, canvas, and noise */
+  .terminal-window, .photo-frame-v9 { animation: none !important; transform: none !important; } /* Stops layout-thrashing float animations */
+  * { box-shadow: none !important; } /* Removes expensive soft shadows on weak GPUs */
+
   /* ── Mobile Header Fix ── */
   #header { background: rgba(10, 10, 20, 0.98); border-bottom: 1px solid rgba(255, 255, 255, 0.1); }
 
@@ -1409,7 +1414,7 @@ section {
     padding-top: 60px; 
     text-align: center; 
   }
-  .photo-frame-v9 { width: 200px; height: 200px; margin: 0 auto; }
+  .photo-frame-v9 { width: 200px; height: 200px; margin: 0 auto; border: 2px solid var(--accent); }
   .hero-center-v9 { min-width: 100%; }
   .hero-title-v9 { font-size: clamp(2rem, 10vw, 2.5rem); min-height: 2.5em; width: 100%; }
   .terminal-wrapper { width: 100%; max-width: 320px; height: 250px; margin: 0 auto; }
@@ -1429,7 +1434,7 @@ section {
   .hero-right { order: -1; }
   .nav-menu { display: none; }
   .skills-wrap { grid-template-columns: 1fr 1fr; gap: 1rem; }
-  .project-card { padding: 1.5rem; }
+  .project-card { padding: 1.5rem; border: 1px solid rgba(255,255,255,0.1); }
   .contact-inner h2 { font-size: 3rem; }
   .footer-inner {
     flex-direction: column; gap: 0.5rem; text-align: center;
