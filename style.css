@@ -509,7 +509,7 @@ h1 {
   width: 90%; max-width: 1750px; gap: 6rem;
 }
 
-.hero-photo-v9 { flex: 0.6; }
+.hero-photo-v9 { flex: 0.8; display: flex; justify-content: center; }
 .photo-frame-v9 {
   width: 400px; height: 400px;
   border-radius: 16px; border: 1px solid var(--glass-border);
@@ -536,12 +536,17 @@ h1 {
   display: inline-block;
   vertical-align: bottom;
   max-width: 0;
-  animation: typing-s 10s steps(22) infinite;
+  border-right: 4px solid var(--accent);
+  animation: typing-s 10s steps(22) infinite, pulse-cursor 1.5s ease-in-out infinite;
 }
 @keyframes typing-s {
   0%, 10% { max-width: 0; }
   40%, 70% { max-width: 100%; }
   95%, 100% { max-width: 0; }
+}
+@keyframes pulse-cursor {
+  0%, 100% { border-color: var(--accent); }
+  50% { border-color: transparent; }
 }
 
 .hero-right-v9 { flex: 1.2; display: flex; justify-content: flex-end; }
