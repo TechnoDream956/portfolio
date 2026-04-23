@@ -11,8 +11,10 @@
   <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet" />
 
   <link rel="stylesheet" href="/style.css" />
+  <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
 </head>
 <body>
+  <div id="particles-js"></div>
 
   <!-- Animated background blobs -->
   <div class="bg-blobs">
@@ -56,28 +58,41 @@
       <div class="hero-left">
         <div class="hero-status">
           <span class="status-dot"></span>
-          Available for internships
+          Available for Internships
         </div>
-        <div class="hero-badge">B.Tech CSE · Cloud Computing · 2024–28</div>
+        <div class="hero-badge">Cloud Computing Specialization</div>
         <h1>
-          I'm <span class="name-highlight">Arpit</span>,<br/>
-          I build things<br/>
-          for the web.
+          Hi, I'm <br/>
+          <span class="name-highlight">Arpit Sehrawat</span>
         </h1>
-        <p class="hero-sub">
-          Second-year student at Bennett University, Greater Noida. 
-          I like turning ideas into working products — whether it's 
-          a canteen ordering system or a health monitoring app.
-        </p>
+        <div class="hero-sub">
+          Building the next generation of <strong>cloud-native applications</strong>. Specialized in AWS, Python, and scalable architecture at Bennett University.
+        </div>
         <div class="hero-links">
-          <a href="#work" class="pill-btn">See my projects</a>
+          <a href="#work" class="pill-btn">Explore Work</a>
           <a href="mailto:arpitsehrawat2030@gmail.com" class="pill-btn ghost">Get in touch</a>
         </div>
       </div>
       <div class="hero-right">
-        <div class="photo-wrapper">
-          <img src="/arpit.jpg" alt="Arpit Sehrawat" />
-          <div class="photo-border"></div>
+        <div class="terminal-window">
+          <div class="terminal-header">
+            <span class="t-dot red"></span>
+            <span class="t-dot yellow"></span>
+            <span class="t-dot green"></span>
+            <span class="t-title">arpit@cloud:~</span>
+          </div>
+          <div class="terminal-body">
+            <div class="t-line"><span class="t-prompt">$</span> cat about_me.json</div>
+            <div class="t-out">{</div>
+            <div class="t-out">&nbsp;&nbsp;"name": "Arpit Sehrawat",</div>
+            <div class="t-out">&nbsp;&nbsp;"role": "Full-Stack Developer",</div>
+            <div class="t-out">&nbsp;&nbsp;"focus": "Cloud Architecture",</div>
+            <div class="t-out">&nbsp;&nbsp;"location": "Greater Noida, IN"</div>
+            <div class="t-out">}</div>
+            <div class="t-line"><span class="t-prompt">$</span> ls skills/</div>
+            <div class="t-out">AWS/ &nbsp; Docker/ &nbsp; Python/ &nbsp; React/</div>
+            <div class="t-line"><span class="t-prompt">$</span> <span class="t-cursor">_</span></div>
+          </div>
         </div>
       </div>
       <div class="scroll-indicator">
@@ -441,83 +456,75 @@
     </div>
   </footer>
 
-  <!-- RESUME MODAL -->
+  <!-- RESUME MODAL REDESIGN -->
   <div id="resume-modal" class="modal">
     <div class="modal-backdrop" onclick="closeResume()"></div>
     <div class="modal-content">
       <button class="modal-close" onclick="closeResume()">×</button>
-      <div class="resume-frame">
-        <header class="resume-header">
-          <h1>Arpit Sehrawat</h1>
-          <div class="resume-contact">
-            <span>Greater Noida, India</span>
-            <span>•</span>
-            <a href="mailto:arpitsehrawat2030@gmail.com">arpitsehrawat2030@gmail.com</a>
-            <span>•</span>
-            <a href="https://linkedin.com/in/arpit-sehrawat-bb6a09323">LinkedIn</a>
+      <div class="resume-wrapper">
+        <div class="resume-side">
+          <div class="res-profile">
+            <img src="/arpit.jpg" alt="Arpit" class="res-img">
+            <h2>Arpit Sehrawat</h2>
+            <p>Developer & Cloud Student</p>
           </div>
-          <button class="pill-btn print-btn" onclick="window.print()">Download PDF Resume</button>
-        </header>
+          
+          <div class="res-contact-side">
+            <div class="res-c-item">📧 arpitsehrawat2030@gmail.com</div>
+            <div class="res-c-item">📍 Greater Noida, UP</div>
+            <div class="res-c-item">🔗 github.com/TechnoDream956</div>
+          </div>
 
-        <div class="resume-body">
-          <section class="resume-section">
-            <h3>Education</h3>
-            <div class="res-item">
-                <div class="res-header">
-                    <span class="res-title">Bennett University</span>
-                    <span class="res-date">2024 — 2028</span>
-                </div>
-                <div class="res-subtitle">B.Tech in Computer Science & Engineering</div>
-                <p>Specializing in Cloud Computing. Maintaining a strong academic record with a focus on scalable systems and high-performance computing.</p>
+          <div class="res-skills-side">
+            <h4>TOP SKILLS</h4>
+            <div class="res-skill-tags">
+              <span>Python</span> <span>AWS</span> <span>Docker</span>
+              <span>Java</span> <span>C++</span> <span>React</span>
+              <span>Node.js</span> <span>SQL</span> <span>Linux</span>
             </div>
-          </section>
+          </div>
+        </div>
+        
+        <div class="resume-main">
+          <div class="res-main-header">
+            <h3>PROFESSIONAL PROFILE</h3>
+            <p>Ambitious Cloud Computing student at Bennett University with a strong background in developing scalable web architectures and AI-driven solutions. Proven ability to architect complex systems like the Smart Canteen infrastructure.</p>
+          </div>
 
-          <section class="resume-section">
-            <h3>Impactful Projects</h3>
-            <div class="res-item">
-                <div class="res-header">
-                    <span class="res-title">Smart Canteen Infrastructure</span>
-                </div>
-                <p>Architected a real-time management platform using Node.js and WebSockets, automating ordering for 1000+ students and increasing kitchen efficiency by 40%.</p>
+          <div class="res-main-section">
+            <h3>EDUCATION</h3>
+            <div class="res-entry">
+              <div class="res-entry-head">
+                <strong>Bennett University</strong>
+                <span>2024 — 2028</span>
+              </div>
+              <p>B.Tech in Computer Science & Engineering (Cloud Spec.)</p>
+              <small>Relevant Coursework: Data Structures, Cloud Architecture, DB Management</small>
             </div>
-            <div class="res-item">
-                <div class="res-header">
-                    <span class="res-title">Vital Arogya Guardian (AI Health)</span>
-                </div>
-                <p>Developed an AI diagnostics engine that leverages symptoms data to provide immediate health risk assessments, featuring a reactive real-time dashboard.</p>
-            </div>
-            <div class="res-item">
-                <div class="res-header">
-                    <span class="res-title">RAG-Based Intelligent Chatbot</span>
-                </div>
-                <p>Built a Retrieval-Augmented Generation chatbot deployed on AWS Lambda, capable of processing large-scale technical documentation for instant querying.</p>
-            </div>
-          </section>
+          </div>
 
-          <section class="resume-section">
-            <h3>Core Expertise</h3>
-            <div class="res-skills">
-              <span class="res-badge">Python (Expert)</span>
-              <span class="res-badge">Java (Advanced)</span>
-              <span class="res-badge">C++ (Logic)</span>
-              <span class="res-badge">JavaScript / TypeScript</span>
-              <span class="res-badge">AWS Cloud Architecting</span>
-              <span class="res-badge">Docker & Containerization</span>
-              <span class="res-badge">React.js Frontend</span>
-              <span class="res-badge">Flask & Node.js Backend</span>
-              <span class="res-badge">Data Structures & Algos</span>
+          <div class="res-main-section">
+            <h3>KEY PROJECTS</h3>
+            <div class="res-entry">
+              <div class="res-entry-head"><strong>Smart Canteen Management</strong></div>
+              <p>Built a real-time ordering system using Node.js and WebSockets. Optimized backend latency by 40% and served 1000+ users.</p>
             </div>
-          </section>
+            <div class="res-entry">
+              <div class="res-entry-head"><strong>Vital Arogya Guardian</strong></div>
+              <p>Developed an AI-health diagnostic engine with Flask and React for immediate medical risk assessment.</p>
+            </div>
+          </div>
 
-          <section class="resume-section">
-            <h3>Top Certifications</h3>
-            <ul class="res-list">
-              <li><strong>AWS Academy Graduate</strong> — Cloud Architecting (Professional Training)</li>
-              <li><strong>AWS Academy Graduate</strong> — Data Engineering (Specialized)</li>
-              <li><strong>Infosys Springboard</strong> — Python Development Professional</li>
-              <li><strong>DSA Expert</strong> — Advanced Problem Solving & Algorithm Design</li>
+          <div class="res-main-section">
+            <h3>CERTIFICATIONS</h3>
+            <ul class="res-certs">
+              <li>AWS Academy Graduate — Cloud Architecting</li>
+              <li>AWS Academy Graduate — Data Engineering</li>
+              <li>Infosys Springboard Python Professional</li>
             </ul>
-          </section>
+          </div>
+          
+          <button class="pill-btn" onclick="window.print()" style="margin-top: 2rem; width: 100%; justify-content: center;">Download Full CV (PDF)</button>
         </div>
       </div>
     </div>

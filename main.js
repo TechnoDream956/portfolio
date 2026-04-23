@@ -90,6 +90,48 @@ window.addEventListener('scroll', () => {
     }
   });
 });
+// ── Particles.js Initialization ──
+if (window.particlesJS) {
+  particlesJS('particles-js', {
+    particles: {
+      number: { value: 60, density: { enable: true, value_area: 800 } },
+      color: { value: "#7c6aff" },
+      shape: { type: "circle" },
+      opacity: { value: 0.2, random: true },
+      size: { value: 2, random: true },
+      line_linked: {
+        enable: true,
+        distance: 150,
+        color: "#7c6aff",
+        opacity: 0.1,
+        width: 1
+      },
+      move: {
+        enable: true,
+        speed: 1.5,
+        direction: "none",
+        random: true,
+        straight: false,
+        out_mode: "out",
+        bounce: false,
+      }
+    },
+    interactivity: {
+      detect_on: "canvas",
+      events: {
+        onhover: { enable: true, mode: "grab" },
+        onclick: { enable: true, mode: "push" },
+        resize: true
+      },
+      modes: {
+        grab: { distance: 200, line_linked: { opacity: 0.3 } },
+        push: { particles_nb: 4 }
+      }
+    },
+    retina_detect: true
+  });
+}
+
 // ── Parallax & Interactive Effects ──
 document.addEventListener('mousemove', (e) => {
   const x = e.clientX / window.innerWidth;
@@ -97,10 +139,9 @@ document.addEventListener('mousemove', (e) => {
 
   // Move blobs subtly for parallax
   document.querySelectorAll('.blob').forEach((blob, index) => {
-    const depth = (index + 1) * 20;
+    const depth = (index + 1) * 30; // Increased depth
     const moveX = (x - 0.5) * depth;
     const moveY = (y - 0.5) * depth;
-    // We combine current float animation with mouse parallax
     blob.style.transform = `translate(${moveX}px, ${moveY}px)`;
   });
 
@@ -111,3 +152,4 @@ document.addEventListener('mousemove', (e) => {
     glowEl.style.top = e.clientY + 'px';
   }
 });
+

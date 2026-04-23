@@ -4,6 +4,14 @@
    typewriter, animated blobs, custom scrollbar
    ═══════════════════════════════════════════ */
 
+/* ── Particles Background ── */
+#particles-js {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+}
+
 :root {
   --bg: #06060a;
   --bg-elevated: #0e0e14;
@@ -416,6 +424,55 @@ h1 {
 @keyframes fadeIn {
   from { opacity: 0; }
   to { opacity: 1; }
+}
+
+/* ── Terminal Window ── */
+.terminal-window {
+  background: #0d0d16;
+  border-radius: 12px;
+  border: 1px solid var(--glass-border);
+  width: 100%;
+  max-width: 450px;
+  box-shadow: 0 30px 60px rgba(0,0,0,0.5), 0 0 40px var(--accent-glow);
+  overflow: hidden;
+  font-family: 'Fira Code', 'Courier New', monospace;
+  animation: float 6s ease-in-out infinite;
+}
+.terminal-header {
+  background: rgba(255, 255, 255, 0.05);
+  padding: 0.75rem 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  border-bottom: 1px solid var(--glass-border);
+}
+.t-dot { width: 10px; height: 10px; border-radius: 50%; }
+.red { background: #ff5f56; }
+.yellow { background: #ffbd2e; }
+.green { background: #27c93f; }
+.t-title { font-size: 0.75rem; color: #888; margin-left: 0.5rem; }
+
+.terminal-body {
+  padding: 1.5rem;
+  font-size: 0.9rem;
+}
+.t-line { color: var(--accent); margin-bottom: 0.5rem; }
+.t-prompt { color: var(--green); margin-right: 0.5rem; }
+.t-out { color: #ccc; margin-bottom: 0.3rem; }
+.t-cursor {
+  width: 8px; height: 15px;
+  background: var(--accent);
+  display: inline-block;
+  animation: blink 1s step-end infinite;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-15px); }
+}
+
+@keyframes blink {
+  50% { opacity: 0; }
 }
 
 /* ── Sections ── */
@@ -928,6 +985,96 @@ section {
   .modal-content { border: none; box-shadow: none; max-width: 100%; height: auto; }
   .resume-frame { background: white; color: black; padding: 0; height: auto; }
   .resume-header h1 { background: none; -webkit-text-fill-color: black; }
+}
+
+/* ── Resume Modal Redesign ── */
+.resume-wrapper {
+  display: grid;
+  grid-template-columns: 280px 1fr;
+  min-height: 80vh;
+  background: #0a0a0f;
+}
+.resume-side {
+  background: rgba(124, 106, 255, 0.03);
+  border-right: 1px solid var(--glass-border);
+  padding: 3rem 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+}
+.res-profile {
+  text-align: center;
+}
+.res-img {
+  width: 100px; height: 100px;
+  border-radius: 50%;
+  border: 2px solid var(--accent);
+  margin-bottom: 1rem;
+  object-fit: cover;
+}
+.res-profile h2 { font-size: 1.4rem; color: #fff; margin-bottom: 0.2rem; }
+.res-profile p { font-size: 0.85rem; color: var(--accent); font-weight: 500; }
+
+.res-contact-side {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+.res-c-item { font-size: 0.8rem; color: #888; }
+
+.res-skills-side h4 {
+  font-size: 0.7rem; color: var(--accent);
+  letter-spacing: 0.2em; margin-bottom: 1rem;
+}
+.res-skill-tags {
+  display: flex; flex-wrap: wrap; gap: 0.5rem;
+}
+.res-skill-tags span {
+  font-size: 0.7rem; color: #ccc;
+  background: rgba(255, 255, 255, 0.05);
+  padding: 0.3rem 0.7rem; border-radius: 4px;
+}
+
+.resume-main {
+  padding: 4rem;
+  overflow-y: auto;
+}
+.res-main-header { margin-bottom: 3rem; }
+.res-main-header h3 { font-size: 0.8rem; color: var(--accent); letter-spacing: 0.2em; margin-bottom: 1rem; }
+.res-main-header p { font-size: 0.95rem; color: #aaa; line-height: 1.7; }
+
+.res-main-section { margin-bottom: 3rem; }
+.res-main-section h3 {
+  font-size: 0.8rem; color: var(--accent);
+  letter-spacing: 0.2em; margin-bottom: 1.5rem;
+  border-bottom: 1px solid var(--glass-border);
+  padding-bottom: 0.5rem;
+}
+.res-entry { margin-bottom: 2rem; }
+.res-entry-head {
+  display: flex; justify-content: space-between;
+  margin-bottom: 0.5rem;
+}
+.res-entry strong { font-size: 1.1rem; color: #fff; }
+.res-entry span { font-size: 0.85rem; color: #666; }
+.res-entry p { color: #888; font-size: 0.95rem; }
+.res-entry small { color: #555; font-size: 0.8rem; }
+
+.res-certs { list-style: none; padding: 0; }
+.res-certs li {
+  margin-bottom: 0.8rem;
+  color: #aaa;
+  display: flex; align-items: center; gap: 0.8rem;
+}
+.res-certs li::before {
+  content: ""; width: 5px; height: 5px;
+  background: var(--accent); border-radius: 50%;
+}
+
+@media (max-width: 768px) {
+  .resume-wrapper { grid-template-columns: 1fr; }
+  .resume-side { border-right: none; border-bottom: 1px solid var(--glass-border); }
+  .resume-main { padding: 2rem; }
 }
 
 /* ── Animations ── */
