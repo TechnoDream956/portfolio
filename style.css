@@ -498,108 +498,97 @@ h1 {
   to { transform: translate(30px, 30px) rotate(15deg); }
 }
 
-/* ── Hero Layout V8 (Wide & Professional) ── */
-.hero-v8 {
-  padding-top: 120px;
-  min-height: 90vh;
+/* ── Hero Layout V9 (Ultra Wide & Balanced) ── */
+.hero-v9 {
+  padding-top: 100px;
+  min-height: 95vh;
   display: flex; align-items: center; justify-content: center;
 }
-.hero-wide-layout {
+.hero-ultra-wide {
   display: flex; align-items: center; justify-content: space-between;
-  width: 95%; max-width: 1500px; gap: 4rem;
+  width: 95%; max-width: 1600px; gap: 6rem;
 }
 
-.hero-photo-v8 { flex: 1; }
-.square-frame {
-  width: 100%; max-width: 400px; aspect-ratio: 1/1;
-  position: relative; border-radius: 20px; overflow: hidden;
-  box-shadow: 0 40px 80px rgba(0,0,0,0.6);
-  border: 1px solid var(--glass-border);
-}
-.square-frame img { width: 100%; height: 100%; object-fit: cover; }
-.frame-edge {
-  position: absolute; inset: 20px; border: 1px solid rgba(255,255,255,0.1);
-  pointer-events: none; border-radius: 10px;
+.hero-photo-v9 { flex: 0.8; }
+.hero-photo-v9 img {
+  width: 100%; max-width: 380px; height: auto;
+  aspect-ratio: 1/1; object-fit: cover;
+  border-radius: 12px; border: 1px solid var(--glass-border);
+  box-shadow: 0 40px 80px rgba(0,0,0,0.5);
 }
 
-.hero-center-v8 { flex: 1.2; }
-.hero-title-v8 {
-  font-family: var(--font-heading); font-weight: 900; font-size: 4.5rem;
-  line-height: 1.1; margin: 15px 0; letter-spacing: -2px;
+.hero-center-v9 { flex: 1.2; }
+.hero-title-v9 {
+  font-family: var(--font-heading); font-weight: 900; font-size: 4.8rem;
+  line-height: 1.05; letter-spacing: -2px; margin: 20px 0;
 }
-.typing-text {
-  color: var(--accent); position: relative;
+.typing-slow {
+  color: var(--accent); border-right: 3px solid var(--accent);
+  white-space: nowrap; overflow: hidden; width: 0;
   display: inline-block;
-  overflow: hidden; border-right: 3px solid var(--accent);
-  white-space: nowrap; width: 0;
-  animation: typing 4s steps(14) infinite, blink 0.5s step-end infinite;
+  animation: typing-s 6s steps(14) infinite, blink 0.6s step-end infinite;
 }
-@keyframes typing {
+@keyframes typing-s {
   0% { width: 0; }
-  30%, 70% { width: 100%; }
+  40%, 60% { width: 100%; }
   100% { width: 0; }
 }
-@keyframes blink {
-  from, to { border-color: transparent; }
-  50% { border-color: var(--accent); }
+
+.hero-right-v9 { flex: 1.2; display: flex; justify-content: flex-end; }
+.terminal-container-v9 { position: relative; }
+
+.terminal-window.professional.detailed {
+  width: 420px; height: 300px;
+  background: rgba(12, 12, 22, 0.98);
+  box-shadow: 0 60px 120px rgba(0,0,0,0.9);
 }
 
-.hero-right-v8 { flex: 1; display: flex; justify-content: flex-end; }
-.terminal-focus { position: relative; }
-
-.terminal-window.professional {
-  width: 380px; height: 240px;
-  background: rgba(15, 15, 25, 0.95);
-  border: 1px solid var(--glass-border);
-  box-shadow: 0 50px 100px rgba(0,0,0,0.9);
-}
-
-/* ── Randomized Multi-Axis Orbit ── */
-.orbit-wrap-v8 {
-  position: absolute; inset: -80px;
+/* ── Orbit Around Terminal Only ── */
+.orbit-box-v9 {
+  position: absolute; inset: -100px;
   pointer-events: none;
 }
-.tech-item {
-  position: absolute; width: 42px; height: 42px;
+.tech-icon {
+  position: absolute; width: 45px; height: 45px;
   background: rgba(255,255,255,0.06);
   border: 1px solid var(--glass-border); border-radius: 50%;
   display: flex; align-items: center; justify-content: center;
-  color: var(--accent); font-size: 1.2rem;
+  color: var(--accent); font-size: 1.3rem;
   box-shadow: 0 0 25px var(--accent-glow);
 }
 
-.t-py { animation: orbit-v8-1 14s linear infinite; }
-.t-aws { animation: orbit-v8-2 18s linear infinite; }
-.t-js { animation: orbit-v8-3 22s linear infinite; }
-.t-cpp { animation: orbit-v8-4 16s linear infinite; }
-.t-docker { animation: orbit-v8-5 20s linear infinite; }
+.t-1 { animation: orbit-v9-1 15s linear infinite; }
+.t-2 { animation: orbit-v9-2 20s linear infinite; }
+.t-3 { animation: orbit-v9-3 25s linear infinite; }
+.t-4 { animation: orbit-v9-4 18s linear infinite; }
+.t-5 { animation: orbit-v9-5 22s linear infinite; }
 
-@keyframes orbit-v8-1 {
-  0% { transform: rotate(0deg) translateX(220px) rotate(0deg); }
-  100% { transform: rotate(360deg) translateX(220px) rotate(-360deg); }
+@keyframes orbit-v9-1 {
+  0% { transform: rotate(0deg) translateX(240px) rotate(0deg); }
+  100% { transform: rotate(360deg) translateX(240px) rotate(-360deg); }
 }
-@keyframes orbit-v8-2 {
-  0% { transform: rotate3d(1, 1, 1, 0deg) translateY(240px) rotate3d(1, 1, 1, 0deg); }
-  100% { transform: rotate3d(1, 1, 1, 360deg) translateY(240px) rotate3d(1, 1, 1, -360deg); }
+@keyframes orbit-v9-2 {
+  0% { transform: rotate3d(1, 1, 0, 0deg) translateY(260px) rotate3d(1, 1, 0, 0deg); }
+  100% { transform: rotate3d(1, 1, 0, 360deg) translateY(260px) rotate3d(1, 1, 0, -360deg); }
 }
-@keyframes orbit-v8-3 {
-  0% { transform: skew(5deg) rotate(0deg) translateX(230px) rotate(0deg); }
-  100% { transform: skew(5deg) rotate(-360deg) translateX(230px) rotate(360deg); }
+@keyframes orbit-v9-3 {
+  0% { transform: rotateX(45deg) rotate(0deg) translateX(250px); }
+  100% { transform: rotateX(45deg) rotate(-360deg) translateX(250px); }
 }
-@keyframes orbit-v8-4 {
-  0% { transform: rotateX(60deg) rotate(0deg) translateX(200px); }
-  100% { transform: rotateX(60deg) rotate(360deg) translateX(200px); }
+@keyframes orbit-v9-4 {
+  0% { transform: rotateY(30deg) rotate(0deg) translateY(-230px); }
+  100% { transform: rotateY(30deg) rotate(360deg) translateY(-230px); }
 }
-@keyframes orbit-v8-5 {
-  0% { transform: rotateY(45deg) rotate(0deg) translateY(210px); }
-  100% { transform: rotateY(45deg) rotate(-360deg) translateY(210px); }
+@keyframes orbit-v9-5 {
+  0% { transform: skew(10deg) rotate(0deg) translateX(-240px); }
+  100% { transform: skew(10deg) rotate(360deg) translateX(-240px); }
 }
 
-@media (max-width: 1300px) {
-  .hero-wide-layout { flex-direction: column; text-align: center; gap: 4rem; }
-  .hero-right-v8 { justify-content: center; }
-  .square-frame { margin: 0 auto; max-width: 300px; }
-  .hero-title-v8 { font-size: 3.5rem; }
+@media (max-width: 1400px) {
+  .hero-ultra-wide { flex-direction: column; text-align: center; gap: 5rem; }
+  .hero-photo-v9 img { max-width: 300px; margin: 0 auto; }
+  .hero-right-v9 { justify-content: center; }
+  .hero-title-v9 { font-size: 3.5rem; }
 }
 
 /* ── Terminal Window ── */
