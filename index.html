@@ -171,7 +171,7 @@
             </p>
             <div class="uni-badge-container">
               <div class="uni-logo-wrapper">
-                <img src="https://upload.wikimedia.org/wikipedia/en/2/23/Bennett_University_logo.png" alt="Bennett University Logo" class="uni-logo">
+                <img src="https://www.bennett.edu.in/wp-content/uploads/2021/12/logo.png" alt="Bennett University Logo" class="uni-logo">
               </div>
               <div class="uni-info">
                 <span class="uni-name">Bennett University</span>
@@ -473,7 +473,13 @@
   <div id="resume-modal" class="modal">
     <div class="modal-backdrop" onclick="closeResume()"></div>
     <div class="modal-content">
-      <button class="modal-close" onclick="closeResume()">×</button>
+      <div class="modal-header-sticky">
+        <h3>PROFESSIONAL RESUME</h3>
+        <div class="modal-header-btns">
+            <button class="pill-btn" onclick="window.print()">Download PDF</button>
+            <button class="modal-close-inline" onclick="closeResume()">×</button>
+        </div>
+      </div>
       <div class="resume-wrapper">
         <div class="resume-side">
           <div class="res-profile">
@@ -565,11 +571,6 @@
             <div class="res-entry">
               <p>Active member of the University Tech Club, participating in weekly coding contests and mentoring junior students in Cloud fundamentals.</p>
             </div>
-          </div>
-          
-          <div class="cv-download-footer">
-            <button class="pill-btn" onclick="window.print()">Download Official CV (PDF)</button>
-            <p style="font-size: 0.7rem; color: #555; margin-top: 1rem; text-align: center;">Generated via Arpit's Professional Portfolio v3.0</p>
           </div>
         </div>
       </div>
