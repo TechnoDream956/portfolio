@@ -4,184 +4,312 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Resume — Arpit Sehrawat</title>
-  <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
   <style>
+    :root {
+      --primary: #6366f1;
+      --secondary: #4f46e5;
+      --text-dark: #111827;
+      --text-light: #4b5563;
+      --bg-gray: #f9fafb;
+      --accent: #8b5cf6;
+    }
+
     body {
-      background: #fdfdfd;
-      color: #111;
+      background: #e5e7eb;
+      color: var(--text-dark);
       font-family: 'Inter', sans-serif;
-      margin: 0; padding: 40px;
-      line-height: 1.5;
+      margin: 0; padding: 40px 0;
       display: flex; flex-direction: column; align-items: center;
     }
-    .resume-paper {
-      max-width: 850px; width: 100%;
+
+    .resume-wrapper {
+      width: 210mm;
+      min-height: 297mm;
       background: white;
-      padding: 0;
+      box-shadow: 0 20px 50px rgba(0,0,0,0.1);
+      display: grid;
+      grid-template-columns: 280px 1fr;
     }
-    header {
-      text-align: center;
+
+    /* ── Sidebar ── */
+    .sidebar {
+      background: #1f2937;
+      color: white;
+      padding: 40px 30px;
+    }
+    .profile-img {
+      width: 180px; height: 180px;
+      border-radius: 12px;
+      object-fit: cover;
       margin-bottom: 30px;
+      border: 3px solid var(--primary);
     }
-    h1 {
-      font-family: 'Crimson Pro', serif;
-      font-size: 2.4rem; font-weight: 700;
-      margin: 0 0 10px; text-transform: uppercase; letter-spacing: 1px;
+    .sidebar-section { margin-bottom: 35px; }
+    .sidebar-title {
+      font-family: 'Outfit'; font-weight: 800; font-size: 0.8rem;
+      text-transform: uppercase; letter-spacing: 2px;
+      color: var(--primary); margin-bottom: 15px;
+      border-bottom: 1px solid rgba(255,255,255,0.1);
+      padding-bottom: 5px;
     }
-    .contact-info {
-      font-size: 0.9rem; color: #555;
-      display: flex; justify-content: center; gap: 15px;
+    .contact-item {
+      display: flex; align-items: center; gap: 10px;
+      font-size: 0.85rem; margin-bottom: 12px; color: #d1d5db;
     }
-    .contact-info a { color: #555; text-decoration: none; }
-    .contact-info a:hover { text-decoration: underline; }
+    .contact-item i { color: var(--primary); width: 15px; }
 
-    section { margin-bottom: 25px; width: 100%; }
-    .section-title {
-      font-family: 'Crimson Pro', serif;
-      font-size: 1.1rem; font-weight: 700;
-      text-transform: uppercase; letter-spacing: 1.5px;
-      border-bottom: 1.5px solid #000;
-      padding-bottom: 3px; margin-bottom: 12px;
+    .skill-bar-container { margin-bottom: 15px; }
+    .skill-info {
+      display: flex; justify-content: space-between;
+      font-size: 0.8rem; margin-bottom: 5px; color: #f3f4f6;
+    }
+    .skill-progress-bg {
+      height: 6px; background: rgba(255,255,255,0.1);
+      border-radius: 3px; overflow: hidden;
+    }
+    .skill-progress-fill {
+      height: 100%; background: var(--primary);
+      border-radius: 3px;
     }
 
-    .entry { margin-bottom: 15px; }
-    .entry-header {
+    /* ── Main Content ── */
+    .main-content {
+      padding: 50px 60px;
+    }
+    header { margin-bottom: 40px; }
+    .name-title {
+      font-family: 'Outfit'; font-weight: 800; font-size: 3rem;
+      color: var(--text-dark); margin: 0; line-height: 1;
+    }
+    .job-title {
+      font-size: 1.1rem; color: var(--primary);
+      font-weight: 600; text-transform: uppercase;
+      letter-spacing: 3px; margin-top: 10px;
+    }
+
+    .section-header {
+      display: flex; align-items: center; gap: 15px;
+      margin-bottom: 20px; margin-top: 10px;
+    }
+    .section-header h2 {
+      font-family: 'Outfit'; font-weight: 800; font-size: 1.2rem;
+      text-transform: uppercase; letter-spacing: 1.5px; margin: 0;
+    }
+    .section-header .line {
+      flex: 1; height: 2px; background: #eee;
+    }
+
+    .entry { margin-bottom: 25px; position: relative; padding-left: 20px; }
+    .entry::before {
+      content: ''; position: absolute; left: 0; top: 8px;
+      width: 8px; height: 8px; background: var(--primary);
+      border-radius: 50%;
+    }
+    .entry-head {
       display: flex; justify-content: space-between; align-items: baseline;
-      margin-bottom: 2px;
+      margin-bottom: 5px;
     }
-    .entry-header strong { font-size: 1.05rem; }
-    .entry-header em { font-style: italic; font-size: 0.95rem; color: #333; }
-    .entry-header span { font-size: 0.95rem; color: #444; }
+    .entry-head h3 { font-size: 1.05rem; margin: 0; color: var(--text-dark); }
+    .entry-date { font-size: 0.85rem; color: var(--text-light); font-weight: 500; }
+    .entry-sub {
+      font-size: 0.95rem; color: var(--secondary);
+      font-weight: 600; margin-bottom: 10px;
+    }
+    
+    .entry ul {
+      margin: 8px 0 0; padding-left: 15px;
+      list-style-type: none;
+    }
+    .entry li {
+      font-size: 0.9rem; color: var(--text-light);
+      margin-bottom: 6px; position: relative;
+    }
+    .entry li::before {
+      content: '•'; position: absolute; left: -15px; color: var(--primary);
+    }
 
-    ul {
-      margin: 5px 0 0; padding-left: 20px;
-      list-style-type: disc;
-    }
-    li {
-      font-size: 0.95rem; color: #333;
-      margin-bottom: 4px;
-    }
-
-    .skills-grid {
-      display: flex; flex-direction: column; gap: 5px;
-    }
-    .skills-row { font-size: 0.95rem; }
-    .skills-row strong { font-weight: 600; width: 120px; display: inline-block; }
-
-    .print-controls {
-      position: fixed; top: 20px; right: 20px;
-      display: flex; gap: 10px;
+    .controls {
+      position: fixed; bottom: 30px; right: 30px;
+      display: flex; gap: 15px;
     }
     .btn {
-      padding: 8px 16px; background: #000; color: #fff;
-      border: none; border-radius: 4px; cursor: pointer;
-      font-family: 'Inter'; font-weight: 600; font-size: 0.85rem;
+      padding: 12px 24px; border-radius: 50px; border: none;
+      font-family: 'Outfit'; font-weight: 600; cursor: pointer;
+      box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+      transition: all 0.3s;
     }
-    .btn.back { background: #666; }
+    .btn-print { background: var(--primary); color: white; }
+    .btn-back { background: white; color: var(--text-dark); }
+    .btn:hover { transform: translateY(-3px); }
 
     @media print {
-      .print-controls { display: none; }
       body { padding: 0; background: white; }
-      .resume-paper { width: 100%; padding: 0; box-shadow: none; }
+      .resume-wrapper { box-shadow: none; width: 100%; margin: 0; }
+      .controls { display: none; }
     }
   </style>
 </head>
 <body>
-  <div class="print-controls">
-    <button class="btn back" onclick="location.href='/'">Back to Portfolio</button>
-    <button class="btn" onclick="window.print()">Print Resume</button>
+
+  <div class="controls">
+    <button class="btn btn-back" onclick="location.href='/'">Back Home</button>
+    <button class="btn btn-print" onclick="window.print()">Download PDF</button>
   </div>
 
-  <div class="resume-paper">
-    <header>
-      <h1>Arpit Sehrawat</h1>
-      <div class="contact-info">
-        <span>Greater Noida, UP</span>
-        <span>•</span>
-        <a href="mailto:arpitsehrawat2030@gmail.com">arpitsehrawat2030@gmail.com</a>
-        <span>•</span>
-        <a href="https://github.com/TechnoDream956">github.com/TechnoDream956</a>
-        <span>•</span>
-        <a href="https://linkedin.com">linkedin.com/in/arpitsehrawat</a>
+  <div class="resume-wrapper">
+    <!-- Sidebar -->
+    <div class="sidebar">
+      <img src="arpit.jpg" alt="Arpit Sehrawat" class="profile-img">
+      
+      <div class="sidebar-section">
+        <div class="sidebar-title">Contact</div>
+        <div class="contact-item"><i class="fas fa-phone"></i> +91 91708 07310</div>
+        <div class="contact-item"><i class="fas fa-envelope"></i> arpitsehrawat2030@gmail.com</div>
+        <div class="contact-item"><i class="fas fa-map-marker-alt"></i> Greater Noida, UP</div>
+        <div class="contact-item"><i class="fab fa-linkedin"></i> arpitsehrawat</div>
+        <div class="contact-item"><i class="fab fa-github"></i> TechnoDream956</div>
       </div>
-    </header>
 
-    <section>
-      <div class="section-title">Education</div>
-      <div class="entry">
-        <div class="entry-header">
-          <strong>BENNETT UNIVERSITY</strong>
-          <span>Greater Noida, IN</span>
+      <div class="sidebar-section">
+        <div class="sidebar-title">Skills</div>
+        
+        <div class="skill-bar-container">
+          <div class="skill-info"><span>Python</span><span>90%</span></div>
+          <div class="skill-progress-bg"><div class="skill-progress-fill" style="width: 90%;"></div></div>
         </div>
-        <div class="entry-header">
-          <em>Bachelor of Technology in Computer Science & Engineering (Cloud Computing)</em>
-          <span>2024 – 2028</span>
-        </div>
-        <ul>
-          <li>Maintaining a CGPA of <strong>8.0/10</strong>; focusing on scalable cloud architecture and data systems.</li>
-          <li>Relevant Coursework: Data Engineering, Cloud Infrastructure, Object-Oriented Programming (Java/C++).</li>
-        </ul>
-      </div>
-    </section>
 
-    <section>
-      <div class="section-title">Technical Projects</div>
-      <div class="entry">
-        <div class="entry-header">
-          <strong>Smart Canteen Infrastructure Project</strong>
-          <span>Bennett University</span>
+        <div class="skill-bar-container">
+          <div class="skill-info"><span>Cloud Computing (AWS)</span><span>85%</span></div>
+          <div class="skill-progress-bg"><div class="skill-progress-fill" style="width: 85%;"></div></div>
         </div>
-        <ul>
-          <li><strong>Engineered</strong> a full-stack real-time ordering system using WebSockets, serving 1000+ active campus users.</li>
-          <li><strong>Optimized</strong> backend transaction latency by 40% through efficient database indexing and caching strategies.</li>
-          <li><strong>Developed</strong> a responsive frontend dashboard, improving the user ordering experience and reducing peak-hour queues.</li>
-        </ul>
-      </div>
-      <div class="entry">
-        <div class="entry-header">
-          <strong>Vital Arogya Guardian (AI Health Engine)</strong>
-          <span>Personal Project</span>
+
+        <div class="skill-bar-container">
+          <div class="skill-info"><span>Data Engineering</span><span>80%</span></div>
+          <div class="skill-progress-bg"><div class="skill-progress-fill" style="width: 80%;"></div></div>
         </div>
-        <ul>
-          <li><strong>Architected</strong> a predictive diagnostic platform using Flask and Machine Learning to assess patient health risks.</li>
-          <li><strong>Integrated</strong> multiple medical data streams, achieving high-accuracy preliminary health risk assessments.</li>
-          <li><strong>Deployed</strong> the application on cloud infrastructure, ensuring 99.9% availability for remote diagnostics.</li>
-        </ul>
-      </div>
-    </section>
 
-    <section>
-      <div class="section-title">Leadership & Experience</div>
-      <div class="entry">
-        <div class="entry-header">
-          <strong>Founder & Lead Developer</strong>
-          <span>Campus Tech Initiative</span>
+        <div class="skill-bar-container">
+          <div class="skill-info"><span>Java / C++</span><span>75%</span></div>
+          <div class="skill-progress-bg"><div class="skill-progress-fill" style="width: 75%;"></div></div>
         </div>
-        <ul>
-          <li><strong>Led</strong> a team of 3 developers to identify and solve campus-wide technical inefficiencies.</li>
-          <li><strong>Mentored</strong> junior students in Cloud Computing fundamentals and Python programming.</li>
-        </ul>
-      </div>
-    </section>
 
-    <section>
-      <div class="section-title">Technical Skills</div>
-      <div class="skills-grid">
-        <div class="skills-row"><strong>Languages:</strong> Python, Java, C++, JavaScript, SQL</div>
-        <div class="skills-row"><strong>Cloud/DevOps:</strong> AWS (Academy Graduate), Docker, Linux, Git</div>
-        <div class="skills-row"><strong>Tools:</strong> MS Office Suite (Excel, Word), Postman, VS Code, Flask</div>
-        <div class="skills-row"><strong>Soft Skills:</strong> Leadership, Technical Writing (Medium Author), Team Collaboration</div>
+        <div class="skill-bar-container">
+          <div class="skill-info"><span>Linux / DevOps</span><span>70%</span></div>
+          <div class="skill-progress-bg"><div class="skill-progress-fill" style="width: 70%;"></div></div>
+        </div>
       </div>
-    </section>
 
-    <section>
-      <div class="section-title">Certifications</div>
-      <ul>
-        <li>AWS Academy Graduate — Cloud Architecting & Data Engineering</li>
-        <li>Infosys Springboard Python Professional Certification</li>
-        <li>Active contributor and author on Medium, focusing on Cloud and AI trends</li>
-      </ul>
-    </section>
+      <div class="sidebar-section">
+        <div class="sidebar-title">Languages</div>
+        <div class="contact-item">English (Professional)</div>
+        <div class="contact-item">Hindi (Native)</div>
+      </div>
+
+      <div class="sidebar-section">
+        <div class="sidebar-title">Interests</div>
+        <div class="contact-item">Cloud Architecture</div>
+        <div class="contact-item">Open Source Development</div>
+        <div class="contact-item">Technical Writing</div>
+      </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="main-content">
+      <header>
+        <h1 class="name-title">Arpit Sehrawat</h1>
+        <div class="job-title">Cloud Computing Student</div>
+      </header>
+
+      <section>
+        <div class="section-header">
+          <h2>Profile</h2>
+          <div class="line"></div>
+        </div>
+        <p style="font-size: 0.95rem; color: var(--text-light); line-height: 1.6; margin: 0;">
+          Highly motivated Computer Science student specializing in Cloud Computing at Bennett University. Proven track record in building scalable full-stack applications and real-time data systems. AWS Academy Graduate with deep expertise in Python, Java, and scalable infrastructure.
+        </p>
+      </section>
+
+      <section style="margin-top: 30px;">
+        <div class="section-header">
+          <h2>Education</h2>
+          <div class="line"></div>
+        </div>
+        <div class="entry">
+          <div class="entry-head">
+            <h3>Bennett University</h3>
+            <span class="entry-date">2024 – 2028</span>
+          </div>
+          <div class="entry-sub">Bachelor of Technology (Computer Science)</div>
+          <p style="font-size: 0.9rem; color: var(--text-light); margin: 0;">Specialization in Cloud Computing. Current CGPA: 8.0/10.</p>
+        </div>
+      </section>
+
+      <section style="margin-top: 30px;">
+        <div class="section-header">
+          <h2>Key Projects</h2>
+          <div class="line"></div>
+        </div>
+        <div class="entry">
+          <div class="entry-head">
+            <h3>Smart Canteen Infrastructure</h3>
+            <span class="entry-date">2023</span>
+          </div>
+          <ul>
+            <li>Engineered a real-time ordering platform serving 1000+ campus users.</li>
+            <li>Optimized backend transaction performance by 40% using database indexing.</li>
+            <li>Implemented secure OTP-based authentication for campus-wide deployment.</li>
+          </ul>
+        </div>
+
+        <div class="entry">
+          <div class="entry-head">
+            <h3>Vital Arogya Guardian (AI Health)</h3>
+            <span class="entry-date">2023</span>
+          </div>
+          <ul>
+            <li>Built a predictive health diagnostic engine using Flask and Machine Learning.</li>
+            <li>Architected scalable cloud deployment for remote medical diagnostics.</li>
+            <li>Collaborated with medical data sets to improve risk assessment accuracy.</li>
+          </ul>
+        </div>
+      </section>
+
+      <section style="margin-top: 30px;">
+        <div class="section-header">
+          <h2>Leadership & Exp</h2>
+          <div class="line"></div>
+        </div>
+        <div class="entry">
+          <div class="entry-head">
+            <h3>Campus Tech Initiative</h3>
+            <span class="entry-date">Founder & Lead</span>
+          </div>
+          <ul>
+            <li>Led a team of 3 developers to solve campus technical bottlenecks.</li>
+            <li>Mentored 20+ junior students in Python and Cloud basics.</li>
+          </ul>
+        </div>
+      </section>
+
+      <section style="margin-top: 30px;">
+        <div class="section-header">
+          <h2>Certifications</h2>
+          <div class="line"></div>
+        </div>
+        <div class="entry" style="margin-bottom: 10px;">
+          <div class="entry-head"><h3>AWS Academy Graduate</h3></div>
+          <p style="font-size: 0.9rem; color: var(--text-light); margin: 0;">Cloud Architecting & Data Engineering Specialization.</p>
+        </div>
+        <div class="entry">
+          <div class="entry-head"><h3>Infosys Springboard Python</h3></div>
+          <p style="font-size: 0.9rem; color: var(--text-light); margin: 0;">Professional Certification in Python Development.</p>
+        </div>
+      </section>
+    </div>
   </div>
+
 </body>
 </html>
