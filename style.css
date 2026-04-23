@@ -523,10 +523,11 @@ h1 {
   50% { transform: translateY(-15px); }
 }
 
-.hero-center-v9 { flex: 1.4; }
+.hero-center-v9 { flex: 1.4; min-width: 450px; }
 .hero-title-v9 {
   font-family: var(--font-heading); font-weight: 900; font-size: 5.2rem;
-  line-height: 0.95; letter-spacing: -3px; margin: 20px 0;
+  line-height: 1.1; letter-spacing: -3px; margin: 20px 0;
+  min-height: 2.2em; /* Prevents vertical collapse */
 }
 .typing-slow {
   color: var(--accent);
